@@ -17,7 +17,8 @@
 
 /* 提供给外部使用的接口有coroutine_open/close，coroutine_new，coroutine_resume/yield，coroutine_status
  * 所有的协程使用调度器提供的stack，但都有自己的stack用于保存公共stack上的信息
- * 使用makecontext，swapcontext系统调用来进行上下文切换，加强版sigsetjmp，siglongjmp */
+ * 使用makecontext，swapcontext系统调用来进行上下文切换，加强版sigsetjmp，siglongjmp
+ * 主调度器上下文主要用来保存运行现场的上下文 */
 struct coroutine;
 
 struct schedule {
